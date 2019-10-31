@@ -165,5 +165,16 @@ public class haps2 {
             }
         }
 
+        //next try
+    @Test
+    public void nana() {
+        driver.get("http://haps.pl/Haps/2,170951,5da6e705980cbd00016a0db2,DAC_Dunajska_Streda_Cracovia,,178661860,6735.html?dfp_off=tak");
+        driver.findElement(By.xpath("//div[@class='buttonBox']//button")).click();
+        System.out.println("IAB check");
+        if (driver.findElement(By.xpath("//div[@class=\"preparationSteps__col1\"]//h3[@class=\"nutritionalValues__title\"]"))==true);
+        {System.out.println("ok");}
+        else
+        {System.out.println("nie ok");}
+    }
 
 }
