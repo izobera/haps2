@@ -1,3 +1,4 @@
+import com.sun.org.apache.xpath.internal.objects.XBoolean;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
@@ -6,6 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.concurrent.TimeUnit;
 
 public class haps2 {
@@ -105,7 +107,7 @@ public class haps2 {
     //dodawanie ocen
     @Test
     public void getValue() {
-        driver.get("http://haps.pl/Haps/2,170951,5d97018e4660cd00015de599,DAC_Dunajska_Streda_Cracovia,,178661860,6735.html?dfp_off=tak");
+        driver.get("http://haps.pl/Haps/2,170951,5da6e705980cbd00016a0db2,DAC_Dunajska_Streda_Cracovia,,178661860,6735.html?dfp_off=tak");
         driver.findElement(By.xpath("//div[@class=\"notify big active\"]/p")).click();
         System.out.println("IAB X");
         WebElement ValueOfStars = driver.findElement(By.xpath("//div[@class='rateRecipe__numberOfVotes']"));
@@ -115,4 +117,53 @@ public class haps2 {
         driver.findElement(By.xpath("//div[@class=\"rateRecipe\"]//label[@for=\"4-star\"]")).click();
 
     }
+
+    //PT 10 Wyświetlanie belki potrawy zgodnie z sekcjami użytymi - test działa tylko jeśli wszystkie pola występują
+    @Test
+    public void getSSpecial() {
+        driver.get("http://haps.pl/Haps/2,170951,5da6e705980cbd00016a0db2,DAC_Dunajska_Streda_Cracovia,,178661860,6735.html?dfp_off=tak");
+        driver.findElement(By.xpath("//div[@class='buttonBox']//button")).click();
+        System.out.println("IAB check");
+        driver.findElement(By.xpath("//div[@class=\"top_content\"]//a[text()='Przegląd']"));
+        driver.findElement(By.xpath("//div[@class=\"preparationInfo\"]"));
+        System.out.println("Przegląd jest");
+        driver.findElement(By.xpath("//div[@class=\"top_content\"]//a[text()='Składniki']"));
+        driver.findElement(By.xpath("//div[@class=\"preparationSteps\"]//strong[text()='Składniki']"));
+        System.out.println("Składniki są");
+        driver.findElement(By.xpath("//div[@class=\"top_content\"]//a[text()='Kroki']"));
+        driver.findElement(By.xpath("//div[@class=\"preparationSteps\"]//h3[text()='SPOSÓB PRZYGOTOWANIA']"));
+        System.out.println("Kroki są");
+        driver.findElement(By.xpath("//div[@class=\"top_content\"]//a[text()='Wartości odżywcze']"));
+        driver.findElement(By.xpath("//div[@class=\"preparationSteps__col1\"]//h3[@class=\"nutritionalValues__title\"]"));
+        System.out.println("Wartości są");
+        driver.findElement(By.xpath("//div[@class=\"top_content\"]//a[text()='Komentarze']"));
+        driver.findElement(By.xpath("//div[@class=\"content_wrap\"]//span[@class=\"head\"]"));
+        System.out.println("Komentarze są");
+        //driver.findElement(By.xpath("//div[@class=\"top_content\"]//a[text()='wymyślone']"));
+        //System.out.println("wymyślone są");
+*/
+        /*driver.findElement(By.xpath("//div[@class=\"preparationInfo\"]"));
+        driver.findElement(By.xpath("//div[@class=\"preparationSteps\"]//strong[text()='Składniki']"));
+        driver.findElement(By.xpath("//div[@class=\"preparationSteps\"]//h3[text()='SPOSÓB PRZYGOTOWANIA']"));
+        driver.findElement(By.xpath("//div[@class=\"//div[@class=\"preparationSteps\"]//strong[text()='WARTOŚCI ODŻYWCZE']"));
+        driver.findElement(By.xpath("//div[@class=\"content_wrap\"]//span[@class=\"head\"]"));
+        }
+*/
+
+        // próba z if
+        @Test
+                public bool IsTestElementPresent(IWebDriver driver)
+        {
+            try {
+                driver.findElement(By.xpath("//div[@class=\"preparationSteps__col1\"]//h3[@class=\"nutritionalValues__title\"]"));
+                return true;
+            }
+            catch (NoSuchElementException)
+            {
+                return false;
+            }
+            }
+        }
+
+
 }
