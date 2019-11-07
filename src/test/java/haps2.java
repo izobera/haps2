@@ -5,7 +5,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
 
+import javax.xml.bind.Element;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.concurrent.TimeUnit;
@@ -23,6 +25,10 @@ public class haps2 {
     public void driverQuit() {
 
         driver.quit();
+    }
+
+    void wypiszTekst(String tekst){
+        System.out.println(tekst);
     }
 
     /* @Test
@@ -121,7 +127,7 @@ public class haps2 {
     //PT 10 Wyświetlanie belki potrawy zgodnie z sekcjami użytymi - test działa tylko jeśli wszystkie pola występują
     @Test
     public void getSSpecial() {
-        driver.get("http://haps.pl/Haps/2,170951,5da6e705980cbd00016a0db2,DAC_Dunajska_Streda_Cracovia,,178661860,6735.html?dfp_off=tak");
+        driver.get("http://haps.pl/Haps/przepis/test?dfp_off=tak");
         driver.findElement(By.xpath("//div[@class='buttonBox']//button")).click();
         System.out.println("IAB check");
         driver.findElement(By.xpath("//div[@class=\"top_content\"]//a[text()='Przegląd']"));
@@ -139,42 +145,23 @@ public class haps2 {
         driver.findElement(By.xpath("//div[@class=\"top_content\"]//a[text()='Komentarze']"));
         driver.findElement(By.xpath("//div[@class=\"content_wrap\"]//span[@class=\"head\"]"));
         System.out.println("Komentarze są");
-        //driver.findElement(By.xpath("//div[@class=\"top_content\"]//a[text()='wymyślone']"));
-        //System.out.println("wymyślone są");
-*/
-        /*driver.findElement(By.xpath("//div[@class=\"preparationInfo\"]"));
-        driver.findElement(By.xpath("//div[@class=\"preparationSteps\"]//strong[text()='Składniki']"));
-        driver.findElement(By.xpath("//div[@class=\"preparationSteps\"]//h3[text()='SPOSÓB PRZYGOTOWANIA']"));
-        driver.findElement(By.xpath("//div[@class=\"//div[@class=\"preparationSteps\"]//strong[text()='WARTOŚCI ODŻYWCZE']"));
-        driver.findElement(By.xpath("//div[@class=\"content_wrap\"]//span[@class=\"head\"]"));
-        }
-*/
+        wypiszTekst("Koniec testu nananana");
 
-        // próba z if
+        }
         @Test
-                public bool IsTestElementPresent(IWebDriver driver)
-        {
-            try {
-                driver.findElement(By.xpath("//div[@class=\"preparationSteps__col1\"]//h3[@class=\"nutritionalValues__title\"]"));
-                return true;
-            }
-            catch (NoSuchElementException)
-            {
-                return false;
-            }
-            }
-        }
+                public void myTest() {
+            driver.get("http://haps.pl/Haps/przepis/test?dfp_off=tak");
+            driver.findElement(By.xpath("//div[@class='buttonBox']//button")).click();
+            System.out.println("IAB check");
+            WebElement pierElem = driver.findElement(By.xpath("//div[@class=\"top_content\"]//a[text()='Przegląd']"));
+            WebElement pierElemB = driver.findElement(By.xpath("//div[@class=\"preparationInfo\"]"));
+            private boolean czyNana() /= null;
+            System.out.println("true");
+            sprawdz = pierElem + pierElemB;
 
-        //next try
-    @Test
-    public void nana() {
-        driver.get("http://haps.pl/Haps/2,170951,5da6e705980cbd00016a0db2,DAC_Dunajska_Streda_Cracovia,,178661860,6735.html?dfp_off=tak");
-        driver.findElement(By.xpath("//div[@class='buttonBox']//button")).click();
-        System.out.println("IAB check");
-        if (driver.findElement(By.xpath("//div[@class=\"preparationSteps__col1\"]//h3[@class=\"nutritionalValues__title\"]"))==true);
-        {System.out.println("ok");}
-        else
-        {System.out.println("nie ok");}
+        }
+        boolean czyNana()
     }
 
-}
+
+
