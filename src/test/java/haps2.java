@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.concurrent.TimeUnit;
 
-public class haps2 {
+ public class haps2 {
     WebDriver driver;
 
     @BeforeEach
@@ -31,11 +31,11 @@ public class haps2 {
         System.out.println(tekst);
     }
 
-    /* @Test
+    @Test
      public void getMethod() {
          driver.get("http://haps.pl/Haps/0,0.html");
          driver.findElement(By.xpath("//div[@class='buttonBox']//button")).click(); //aktualności
- //        Assert.assertTrue(.isDisplayed());
+//       Assert.assertTrue(.isDisplayed());
          driver.findElement(By.id("e1")).click();
 
      }
@@ -52,7 +52,7 @@ public class haps2 {
          System.out.println("posiłki check");
      }
 
-     */
+
 // IAB Sprawdzenie czy "Zaufani Partnerzy" wysyłają cookie euconsent - druk do konsoli
     @Test
     public void getMy () {
@@ -148,20 +148,6 @@ public class haps2 {
         wypiszTekst("Koniec testu nananana");
 
         }
-        @Test
-                public void myTest() {
-            driver.get("http://haps.pl/Haps/przepis/test?dfp_off=tak");
-            driver.findElement(By.xpath("//div[@class='buttonBox']//button")).click();
-            System.out.println("IAB check");
-            WebElement pierElem = driver.findElement(By.xpath("//div[@class=\"top_content\"]//a[text()='Przegląd']"));
-            WebElement pierElemB = driver.findElement(By.xpath("//div[@class=\"preparationInfo\"]"));
-            private boolean czyNana() /= null;
-            System.out.println("true");
-            sprawdz = pierElem + pierElemB;
-
         }
-        boolean czyNana()
-    }
-
 
 
